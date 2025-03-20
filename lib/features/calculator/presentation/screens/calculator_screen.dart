@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/core/methods/result_message.dart';
+import 'package:bmi_calculator/core/model/person.dart';
 import 'package:bmi_calculator/core/widgets/custom_button.dart';
 import 'package:bmi_calculator/features/calculator/presentation/widgets/gender_selector.dart';
 import 'package:bmi_calculator/features/calculator/presentation/widgets/height_selector.dart';
@@ -7,19 +7,16 @@ import 'package:bmi_calculator/features/calculator/presentation/widgets/age_sele
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/core/colours/app_colours.dart';
 import 'package:bmi_calculator/features/result/presentation/screens/result_page.dart';
-import 'package:bmi_calculator/core/methods/bmi_get.dart';
-import 'package:bmi_calculator/core/methods/bmi_check.dart';
-import 'package:bmi_calculator/globals.dart' as globals;
 
 class CalculatorScreen extends StatefulWidget {
-  CalculatorScreen({super.key});
-  double bmi = 0;
-  String status = '';
+  const CalculatorScreen({super.key});
+
   @override
   State<CalculatorScreen> createState() => _CalculatorScreenState();
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
+  final Person person = Person();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,42 +34,46 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             padding: const EdgeInsets.all(8.0),
             child: Center(
                 child: Column(children: [
-              GenderSelector(),
-              SizedBox(
+              GenderSelector(
+                person: person,
+              ),
+              const SizedBox(
                 height: 20,
               ),
-              HeightSelector(),
-              SizedBox(
+              HeightSelector(
+                person: person,
+              ),
+              const SizedBox(
                 height: 20,
               ),
               Expanded(
                 child: Row(
                   children: [
-                    WeightSelector(),
-                    SizedBox(
+                    WeightSelector(
+                      person: person,
+                    ),
+                    const SizedBox(
                       width: 20,
                     ),
-                    AgeSelector(),
+                    AgeSelector(
+                      person: person,
+                    ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomButton(
                 text: 'CALCULATE',
-                onPressed: () {
-                  widget.bmi = bmi_get(globals.height, globals.weight);
-                  widget.status = bmiCheck(
-                    bmi: widget.bmi,
-                  );
+                onPressed: () async {
+                  Person.bmiGet(person);
+                  Person.bmiCheck(person);
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ResultPage(
-                                bmi: widget.bmi,
-                                status: widget.status,
-                                message: resultMessage(status: widget.status),
+                                person: person,
                               )));
                 },
               )

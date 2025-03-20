@@ -1,19 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:bmi_calculator/core/model/person.dart';
 import 'package:bmi_calculator/core/widgets/custom_button.dart';
 import 'package:bmi_calculator/features/result/presentation/widgets/result_card.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/core/colours/app_colours.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage(
-      {super.key,
-      required this.bmi,
-      required this.status,
-      required this.message});
-  final double bmi;
-  final String status;
-  final String message;
+  const ResultPage({
+    super.key,
+    required this.person,
+  });
+  final Person person;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +38,10 @@ class ResultPage extends StatelessWidget {
                       fontSize: 50,
                       fontWeight: FontWeight.bold)),
               SizedBox(height: 20),
-              ResultCard(status: status, bmi: bmi, message: message),
+              ResultCard(
+                  status: person.status,
+                  bmi: person.bmi,
+                  message: Person.resultMessage(person)),
               CustomButton(
                 text: 'RE-CALCULATE',
                 onPressed: () {

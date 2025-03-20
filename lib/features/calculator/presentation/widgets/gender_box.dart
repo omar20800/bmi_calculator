@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/core/colours/app_colours.dart';
-import 'package:bmi_calculator/globals.dart' as globals;
 
 class GenderBox extends StatelessWidget {
   const GenderBox(
@@ -22,7 +21,7 @@ class GenderBox extends StatelessWidget {
           onTap();
         },
         child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
                 color: color, borderRadius: BorderRadius.circular(10)),
             child: Column(
@@ -36,7 +35,7 @@ class GenderBox extends StatelessWidget {
                 Expanded(child: Container()),
                 Text(
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                   ),

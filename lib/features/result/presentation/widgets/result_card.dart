@@ -32,7 +32,7 @@ class ResultCard extends StatelessWidget {
             ),
             Text(status,
                 style: TextStyle(
-                    color: Colors.green,
+                    color: AppColours.greenColor,
                     fontSize: 40,
                     fontWeight: FontWeight.bold)),
             SizedBox(

@@ -1,10 +1,10 @@
+import 'package:bmi_calculator/core/model/person.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/core/colours/app_colours.dart';
-import 'package:bmi_calculator/globals.dart' as globals;
 
 class HeightSelector extends StatefulWidget {
-  HeightSelector({super.key});
-  
+  HeightSelector({super.key, required this.person});
+  final Person person;
 
   @override
   State<HeightSelector> createState() => _HeightSelectorState();
@@ -35,8 +35,8 @@ class _HeightSelectorState extends State<HeightSelector> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    globals.height.toInt().toString(),
-                    style: TextStyle(
+                    widget.person.height.toInt().toString(),
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 50,
                         fontWeight: FontWeight.bold),
@@ -54,10 +54,10 @@ class _HeightSelectorState extends State<HeightSelector> {
                 ],
               ),
               Slider(
-                value: globals.height,
+                value: widget.person.height,
                 onChanged: (value) {
                   setState(() {
-                    globals.height = value;
+                    widget.person.height = value;
                   });
                 },
                 min: 120,

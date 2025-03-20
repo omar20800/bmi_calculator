@@ -15,15 +15,8 @@ class Person {
     this.status = '',
   });
 
-  infoSet({bool? isMale, double? height, int? age, int? weight}) {}
-
   static Person bmiGet(Person person) {
     person.bmi = person.weight / (person.height / 100 * person.height / 100);
-    return person;
-  }
-
-  static Person bmiReset(Person person) {
-    person.bmi = 0;
     return person;
   }
 

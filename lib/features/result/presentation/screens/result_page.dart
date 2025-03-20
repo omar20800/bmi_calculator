@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:bmi_calculator/core/model/person.dart';
 import 'package:bmi_calculator/core/widgets/custom_button.dart';
 import 'package:bmi_calculator/features/result/presentation/widgets/result_card.dart';
@@ -19,9 +17,9 @@ class ResultPage extends StatelessWidget {
       backgroundColor: AppColours.primaryColor,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('BMI CALCULATOR',
+        title: const Text('BMI CALCULATOR',
             style: TextStyle(
-                color: Colors.white,
+                color: AppColours.whiteColor,
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
         backgroundColor: AppColours.primaryColor,
@@ -31,13 +29,13 @@ class ResultPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 20),
-              Text('Your Result',
+              const SizedBox(height: 20),
+              const Text('Your Result',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 50,
                       fontWeight: FontWeight.bold)),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ResultCard(
                   status: person.status,
                   bmi: person.bmi,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bmi_calculator/core/colours/app_colours.dart';
 
 class HeightSelector extends StatefulWidget {
-  HeightSelector({super.key, required this.person});
+  const HeightSelector({super.key, required this.person});
   final Person person;
 
   @override

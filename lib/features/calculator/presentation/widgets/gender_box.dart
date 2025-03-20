@@ -29,7 +29,7 @@ class GenderBox extends StatelessWidget {
               children: [
                 Icon(
                   icon,
-                  color: Colors.white,
+                  color: AppColours.whiteColor,
                   size: 100,
                 ),
                 Expanded(child: Container()),

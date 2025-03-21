@@ -1,0 +1,2 @@
+D:/flutter diploma/bmi_calculator/android/app/.cxx/RelWithDebInfo/23495b6w/x86/CMakeFiles/edit_cache.dir
+D:/flutter diploma/bmi_calculator/android/app/.cxx/RelWithDebInfo/23495b6w/x86/CMakeFiles/rebuild_cache.dir
